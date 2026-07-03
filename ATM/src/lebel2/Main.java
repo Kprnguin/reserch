@@ -110,6 +110,8 @@ public class Main {
         }
     }
 
+
+
     public static String accountLogin(){
         //idを入力してもらう(キャッシュカードの認証)
         System.out.print("ユーザーIDを入力してください：");
@@ -118,6 +120,8 @@ public class Main {
         System.out.println("-----------------------------");
         return userId;
     }
+
+
 
     public static int select(int setValue){
         int flag = 0;
@@ -136,6 +140,8 @@ public class Main {
         }
         return flag;
     }
+
+
 
     public static int amountInput(){
         int amount;
@@ -160,6 +166,8 @@ public class Main {
         return amount;
     }
 
+
+
     public static int passwordInput() {
         int i = 0;
         int password;
@@ -177,6 +185,8 @@ public class Main {
             return -1;
         }
     }
+
+
 
     public static int passwordCheck(String userId){
         //idに対してパスワードを参照する(3回間違えると操作できなくなる)
@@ -204,6 +214,8 @@ public class Main {
             System.out.println("-----------------------------");
         }
     }
+
+
 
     public static void print(String userId,int amount,int operation){
         //入出金額の表示と、預け金額の総額表示
