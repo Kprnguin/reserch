@@ -52,8 +52,9 @@ public class Main {
             }
 
             //入金金額を入力してもらう(入力金額が1,000,000円(お札100枚まで) or 0円未満の場合例外処理)
-            int depositAmount = 0;
+            int depositAmount;
             while (true) {
+                System.out.println("現在の口座額：" + Table.getBalance(userId) + "円");
                 System.out.println("入金金額を入れてください：");
                 Scanner amount = new Scanner(System.in);
                 try {
@@ -111,6 +112,9 @@ public class Main {
             System.out.println("預け総額：" + Table.getBalance(userId));
         }
 
+
+
+
         //出金を選択したとき
         else if (operation == 2) {
             //idを入力してもらう(キャッシュカードの認証)
@@ -161,15 +165,16 @@ public class Main {
             }
 
             //出金金額を入力してもらう(入力金額が1,000,000円(お札100枚まで) or 0円未満の場合例外処理)
-            int withdrawal = 0;
+            int withdrawal;
             while (true) {
+                System.out.println("現在の口座額：" + Table.getBalance(userId) + "円");
                 System.out.println("出金金額を入れてください：");
                 Scanner amount = new Scanner(System.in);
                 try {
                     withdrawal = amount.nextInt();
                     System.out.println("-----------------------------");
                     //int型の例外処理
-                    if (withdrawal < 0 || withdrawal > 1000000 || Table.getBalance(userId) > withdrawal) {
+                    if (withdrawal < 0 || withdrawal > 1000000 || Table.getBalance(userId) < withdrawal) {
                         System.out.println("金額が適切ではありません");
                         System.out.println("もう一度入力してください");
                         System.out.println("-----------------------------");

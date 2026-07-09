@@ -20,7 +20,6 @@ public class Table {
     public static boolean containsAccount(String id) {
         return accountTable.containsKey(id);
     }
-
     public static int getPassword(String id) {
         return accountTable.getOrDefault(id, 0);
     }
