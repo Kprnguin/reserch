@@ -8,7 +8,6 @@ public class Main {
     private static final int ERROR = -1;
 
     public static void main(String[] args) {
-        int flag;
         int operation;
         String userId;
         int setValue;
