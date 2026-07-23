@@ -1,9 +1,11 @@
 package level3;
 
+
 import java.util.HashMap;
 import java.util.Map;
 
 public class Table {
+
     private static final Map<String, Integer> accountTable = Map.of(
             "qwer",1234,
             "asdf",2345,

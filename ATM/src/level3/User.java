@@ -1,13 +1,11 @@
 package level3;
 
-import level2.Table;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class User {
     private final int ERROR = -1;
-
 
     public String login(){
         //idを入力してもらう(キャッシュカードの認証)

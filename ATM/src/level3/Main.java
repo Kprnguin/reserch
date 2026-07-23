@@ -2,7 +2,6 @@ package level3;
 
 
 public class Main {
-
     private static final int ERROR = -1;
 
     public static void main(String[] args) {
