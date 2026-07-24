@@ -59,7 +59,7 @@ public class Main {
                 Scanner amount = new Scanner(System.in);
                 try {
                     depositAmount = amount.nextInt();
-                    System.out.println("入力額：" + depositAmount);
+                    System.out.println("入力額：" + depositAmount + "円");
                     System.out.println("-----------------------------");
                     //int型の例外処理
                     if (depositAmount < 0 || depositAmount > 1000000) {
@@ -78,7 +78,7 @@ public class Main {
                 //入力内容に間違いがないかを確認する
                 while (true) {
                     System.out.println("入力内容を確認してください\n");
-                    System.out.println("入力金額：" + depositAmount + "\n");
+                    System.out.println("入力金額：" + depositAmount + "円\n");
                     System.out.println("[1:次に進む][2:入力しなおす]");
                     System.out.print("あなたの操作(数字を入力してください)：");
                     Scanner input2 = new Scanner(System.in);
@@ -106,10 +106,10 @@ public class Main {
                 break;
             }
             //入金額の表示と、預け金額の総額表示
-            System.out.println("元の口座額：" + Table.getBalance(userId));
-            System.out.println("入金額：" + depositAmount);
+            System.out.println("元の口座額：" + Table.getBalance(userId) + "円");
+            System.out.println("入金額：" + depositAmount + "円");
             Table.updateBalance(userId, depositAmount);
-            System.out.println("預け総額：" + Table.getBalance(userId));
+            System.out.println("預け総額：" + Table.getBalance(userId) + "円");
         }
 
 
@@ -190,7 +190,7 @@ public class Main {
                 //入力内容に間違いがないかを確認する
                 while (true) {
                     System.out.println("入力内容を確認してください\n");
-                    System.out.println("出金金額：" + withdrawal + "\n");
+                    System.out.println("出金金額：" + withdrawal + "円\n");
                     System.out.println("[1:次に進む][2:入力しなおす]");
                     System.out.print("あなたの操作(数字を入力してください)：");
                     Scanner input2 = new Scanner(System.in);
@@ -218,10 +218,10 @@ public class Main {
                 break;
             }
             //出金額の表示と、預け金額の総額表示
-            System.out.println("元の口座額：" + Table.getBalance(userId));
-            System.out.println("出金額：" + withdrawal);
+            System.out.println("元の口座額：" + Table.getBalance(userId) + "円");
+            System.out.println("出金額：" + withdrawal + "円");
             Table.updateBalance(userId, -1*withdrawal);//引き出すため入力した出金額に-1の積を渡す
-            System.out.println("預け総額：" + Table.getBalance(userId));
+            System.out.println("預け総額：" + Table.getBalance(userId) + "円");
         }
     }
 }

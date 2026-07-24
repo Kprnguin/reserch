@@ -9,9 +9,10 @@ public class Account {
     InputChecker inputChecker = new InputChecker();
 
     public int amountFlow(int operation, String userId){
-        int flag;
-        int amount;
-        while (true) {
+        int inputAgain = 2;
+        int flag = inputAgain;
+        int amount = 0;
+        while (flag == inputAgain) {
             System.out.println("現在の口座額：" + Table.getBalance(userId) + "円");
             if(operation == 1){
                 System.out.println("入金金額を入れてください：");
@@ -25,11 +26,8 @@ public class Account {
 
             //入力内容に間違いがないかを確認する
             flag = check(amount);
-            if (flag == 2) {    //入力を再度行う
-                continue;
-            }
-            return amount;
         }
+        return amount;
     }
 
 
@@ -70,18 +68,15 @@ public class Account {
 
     private int check(int amount){
         //入力内容に間違いがないかを確認する
-        int setValue;//setValueは選択肢(ボタン)の数
-        int flag;
-        while (true) {
+        int setValue = 2;//setValueは選択肢(ボタン)の数
+        int flag = 0;
+        while (flag < 1 || setValue < flag) {
             System.out.println("入力内容を確認してください\n");
             System.out.println("入力金額：" + amount + "\n");
             System.out.println("[1:次に進む][2:入力しなおす]");
             System.out.print("あなたの操作(数字を入力してください)：");
-            setValue = 2;
             flag = inputChecker.select(setValue);
-            if (0 < flag && flag <= setValue) {
-                return flag;
-            }
         }
+        return flag;
     }
 }

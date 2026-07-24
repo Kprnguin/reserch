@@ -5,14 +5,14 @@ public class Main {
     private static final int ERROR = -1;
 
     public static void main(String[] args) {
-        int operation;
+        int operation = 0;
         String userId;
         int setValue;
         User user = new User();
         Account account = new Account();
         InputChecker inputChecker = new InputChecker();
 
-        while (true) {  //1か2を選択するまで選択しなおす
+        while (operation != 1 && operation != 2) {  //1か2を選択するまで選択しなおす
             System.out.println("-----------------------------");
             System.out.println("〇〇銀行ATM");
             System.out.println("何の操作を行いますか？");
@@ -20,9 +20,6 @@ public class Main {
             System.out.print("あなたの操作(数字を入力してください)：");
             setValue = 2;
             operation = inputChecker.select(setValue);   //setValueは選択肢(ボタン)の数
-            if (operation == 1 || operation == 2) {
-                break;
-            }
         }
 
         //入金を選択したとき
@@ -50,15 +47,15 @@ public class Main {
 
     public static void print(String userId,int amount,int operation){
         //入出金額の表示と、預け金額の総額表示
-        System.out.println("元の口座額：" + Table.getBalance(userId));
+        System.out.println("元の口座額：" + Table.getBalance(userId) + "円");
         if(operation == 1){
-            System.out.println("入金金額：" + amount);
+            System.out.println("入金金額：" + amount + "円");
         }
         if(operation == 2){
-            System.out.println("出金金額：" + amount);
+            System.out.println("出金金額：" + amount + "円");
             amount = -1 * amount;
         }
         Table.updateBalance(userId, amount);//引き出すため入力した出金額に-1の積を渡す
-        System.out.println("預け総額：" + Table.getBalance(userId));
+        System.out.println("預け総額：" + Table.getBalance(userId) + "円");
     }
 }
