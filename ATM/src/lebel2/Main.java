@@ -65,7 +65,7 @@ public class Main {
     }
 
 
-
+    //select気に食わないので今後おそらく直します。
     public static int select(int setValue){
         int flag;
         Scanner input = new Scanner(System.in);

@@ -7,6 +7,7 @@ import java.util.Scanner;
 public class InputChecker {
     private final int ERROR = -1;
 
+    //select気に食わないので今後おそらく直します
     public int select(int setValue){
         int flag;
         Scanner input = new Scanner(System.in);
