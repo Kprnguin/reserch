@@ -1,6 +1,4 @@
-package lebel1;
-
-import lebel1.Table;
+package level1;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;

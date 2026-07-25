@@ -1,4 +1,4 @@
-package lebel2;
+package level2;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
