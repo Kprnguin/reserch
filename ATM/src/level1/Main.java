@@ -53,7 +53,7 @@ public class Main {
             int depositAmount;
             while (true) {
                 System.out.println("現在の口座額：" + Table.getBalance(userId) + "円");
-                System.out.println("入金金額を入れてください：");
+                System.out.print("入金金額を入れてください：");
                 Scanner amount = new Scanner(System.in);
                 try {
                     depositAmount = amount.nextInt();
@@ -166,7 +166,7 @@ public class Main {
             int withdrawal;
             while (true) {
                 System.out.println("現在の口座額：" + Table.getBalance(userId) + "円");
-                System.out.println("出金金額を入れてください：");
+                System.out.print("出金金額を入れてください：");
                 Scanner amount = new Scanner(System.in);
                 try {
                     withdrawal = amount.nextInt();

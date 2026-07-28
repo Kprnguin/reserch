@@ -15,9 +15,9 @@ public class Account {
         while (flag == inputAgain) {
             System.out.println("現在の口座額：" + Table.getBalance(userId) + "円");
             if(operation == 1){
-                System.out.println("入金金額を入れてください：");
+                System.out.print("入金金額を入れてください：");
             }else if(operation == 2) {
-                System.out.println("出金金額を入れてください：");
+                System.out.print("出金金額を入れてください：");
             }
             amount = amountInput(operation,userId);
             if (amount == ERROR) {
