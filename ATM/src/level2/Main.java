@@ -19,7 +19,7 @@ public class Main {
             System.out.println("[1:入金][2:出金]");
             System.out.print("あなたの操作(数字を入力してください)：");
             setValue = 2;
-            operation = select(setValue);   //setValueは選択肢(ボタン)の数
+            operation = selectChecker(setValue);   //setValueは選択肢(ボタン)の数
         }
 
         //入金を選択したとき
@@ -62,8 +62,7 @@ public class Main {
     }
 
 
-    //select気に食わないので今後おそらく直します。
-    public static int select(int setValue){
+    public static int selectChecker(int setValue){
         int flag;
         Scanner input = new Scanner(System.in);
         try {
@@ -114,14 +113,14 @@ public class Main {
             System.out.println("-----------------------------");
             //int型の例外処理
             if(operation == 1){
-                if(amount < 0 || amount > 1000000){
+                if(amount <= 0 || amount > 1000000){
                     System.out.println("金額が適切ではありません");
                     System.out.println("もう一度入力してください");
                     System.out.println("-----------------------------");
                     return ERROR;
                 }
             }if(operation == 2){
-                if(amount < 0 || amount > 1000000 ||Table.getBalance(userId) < amount){
+                if(amount <= 0 || amount > 1000000 ||Table.getBalance(userId) < amount){
                     System.out.println("金額が適切ではありません");
                     System.out.println("もう一度入力してください");
                     System.out.println("-----------------------------");
@@ -148,7 +147,7 @@ public class Main {
             System.out.println("入力金額：" + amount + "円\n");
             System.out.println("[1:次に進む][2:入力しなおす]");
             System.out.print("あなたの操作(数字を入力してください)：");
-            flag = select(setValue);
+            flag = selectChecker(setValue);
         }
         return flag;
     }

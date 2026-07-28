@@ -41,14 +41,14 @@ public class Account {
             System.out.println("-----------------------------");
             //int型の例外処理
             if(operation == 1){
-                if(amount < 0 || amount > 1000000){
+                if(amount <= 0 || amount > 1000000){
                     System.out.println("金額が適切ではありません");
                     System.out.println("もう一度入力してください");
                     System.out.println("-----------------------------");
                     return ERROR;
                 }
             }if(operation == 2){
-                if(amount < 0 || amount > 1000000 || Table.getBalance(userId) < amount){
+                if(amount <= 0 || amount > 1000000 || Table.getBalance(userId) < amount){
                     System.out.println("金額が適切ではありません");
                     System.out.println("もう一度入力してください");
                     System.out.println("-----------------------------");

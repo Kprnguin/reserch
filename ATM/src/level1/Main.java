@@ -60,7 +60,7 @@ public class Main {
                     System.out.println("入力額：" + depositAmount + "円");
                     System.out.println("-----------------------------");
                     //int型の例外処理
-                    if (depositAmount < 0 || depositAmount > 1000000) {
+                    if (depositAmount <= 0 || depositAmount > 1000000) {
                         System.out.println("金額が適切ではありません");
                         System.out.println("もう一度入力してください");
                         System.out.println("-----------------------------");
@@ -172,7 +172,7 @@ public class Main {
                     withdrawal = amount.nextInt();
                     System.out.println("-----------------------------");
                     //int型の例外処理
-                    if (withdrawal < 0 || withdrawal > 1000000 || Table.getBalance(userId) < withdrawal) {
+                    if (withdrawal <= 0 || withdrawal > 1000000 || Table.getBalance(userId) < withdrawal) {
                         System.out.println("金額が適切ではありません");
                         System.out.println("もう一度入力してください");
                         System.out.println("-----------------------------");
