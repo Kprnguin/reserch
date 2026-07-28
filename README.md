@@ -1,2 +1,2 @@
-<img width="618" height="359" alt="スクリーンショット 2026-07-24 105949" src="https://github.com/user-attachments/assets/0dcd1061-2989-4e18-a4e8-cca05b3c0093" />
-7/28現在
+<img width="489" height="298" alt="image" src="https://github.com/user-attachments/assets/85c0b46d-f5f5-4474-a12c-2517e4d8da69" />
+7/28 13:32現在
