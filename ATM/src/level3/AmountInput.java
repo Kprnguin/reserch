@@ -37,7 +37,7 @@ public class AmountInput {
         Scanner input = new Scanner(System.in);
         try {
             amount = input.nextInt();
-            System.out.println("入力額：" + amount);
+            System.out.println("入力額：" + amount + "円");
             System.out.println("-----------------------------");
             //int型の例外処理
             if(operation == 1){
@@ -72,10 +72,10 @@ public class AmountInput {
         int flag = 0;
         while (flag < 1 || setValue < flag) {
             System.out.println("入力内容を確認してください\n");
-            System.out.println("入力金額：" + amount + "\n");
+            System.out.println("入力金額：" + amount + "円\n");
             System.out.println("[1:次に進む][2:入力しなおす]");
             System.out.print("あなたの操作(数字を入力してください)：");
-            flag = inputValidator.checkSelection(setValue);
+            flag = inputValidator.validateSelection(setValue);
         }
         return flag;
     }

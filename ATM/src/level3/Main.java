@@ -8,19 +8,12 @@ public class Main {
         int operation = 0;
         String userId;
         int setValue;
+        TracsactionMenu tracsactionMenu = new TracsactionMenu();
         UserAuthentication userAuthentication = new UserAuthentication();
         AmountInput amountInput = new AmountInput();
-        InputValidator inputValidator = new InputValidator();
+        TransactionResult transactionResult = new TransactionResult();
 
-        while (operation != 1 && operation != 2) {  //1か2を選択するまで選択しなおす
-            System.out.println("-----------------------------");
-            System.out.println("〇〇銀行ATM");
-            System.out.println("何の操作を行いますか？");
-            System.out.println("[1:入金][2:出金]");
-            System.out.print("あなたの操作(数字を入力してください)：");
-            setValue = 2;
-            operation = inputValidator.checkSelection(setValue);   //setValueは選択肢(ボタン)の数
-        }
+        operation = tracsactionMenu.start();
 
         //入金を選択したとき
         if (operation == 1) {
@@ -29,7 +22,7 @@ public class Main {
             int depositAmount = amountInput.start(operation, userId);
 
             //入金額の表示と、預け金額の総額表示
-            print(userId, depositAmount,operation);
+            transactionResult.display(userId, depositAmount,operation);
         }
 
         //出金を選択したとき
@@ -40,22 +33,7 @@ public class Main {
             int withdrawal = amountInput.start(operation, userId);
 
             //出金額の表示と、預け金額の総額表示
-            print(userId,withdrawal,operation);
+            transactionResult.display(userId,withdrawal,operation);
         }
-    }
-
-
-    public static void print(String userId,int amount,int operation){
-        //入出金額の表示と、預け金額の総額表示
-        System.out.println("元の口座額：" + Table.getBalance(userId) + "円");
-        if(operation == 1){
-            System.out.println("入金金額：" + amount + "円");
-        }
-        if(operation == 2){
-            System.out.println("出金金額：" + amount + "円");
-            amount = -1 * amount;
-        }
-        Table.updateBalance(userId, amount);//引き出すため入力した出金額に-1の積を渡す
-        System.out.println("預け総額：" + Table.getBalance(userId) + "円");
     }
 }

@@ -170,6 +170,7 @@ public class Main {
                 Scanner amount = new Scanner(System.in);
                 try {
                     withdrawal = amount.nextInt();
+                    System.out.println("出金額：" + withdrawal + "円");
                     System.out.println("-----------------------------");
                     //int型の例外処理
                     if (withdrawal <= 0 || withdrawal > 1000000 || Table.getBalance(userId) < withdrawal) {

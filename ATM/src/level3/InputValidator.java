@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class InputValidator {
     private final int ERROR = -1;
 
-    public int checkSelection(int setValue){
+    public int validateSelection(int setValue){
         int flag;
         Scanner input = new Scanner(System.in);
         try {
