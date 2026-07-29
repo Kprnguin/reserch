@@ -8,9 +8,9 @@ public class Main {
         int operation = 0;
         String userId;
         int setValue;
-        User user = new User();
-        Account account = new Account();
-        InputChecker inputChecker = new InputChecker();
+        UserAuthentication userAuthentication = new UserAuthentication();
+        AmountInput amountInput = new AmountInput();
+        InputValidator inputValidator = new InputValidator();
 
         while (operation != 1 && operation != 2) {  //1か2を選択するまで選択しなおす
             System.out.println("-----------------------------");
@@ -19,14 +19,14 @@ public class Main {
             System.out.println("[1:入金][2:出金]");
             System.out.print("あなたの操作(数字を入力してください)：");
             setValue = 2;
-            operation = inputChecker.select(setValue);   //setValueは選択肢(ボタン)の数
+            operation = inputValidator.checkSelection(setValue);   //setValueは選択肢(ボタン)の数
         }
 
         //入金を選択したとき
         if (operation == 1) {
-            userId = user.login();
+            userId = userAuthentication.identifyUser();
 
-            int depositAmount = account.amountFlow(operation, userId);
+            int depositAmount = amountInput.start(operation, userId);
 
             //入金額の表示と、預け金額の総額表示
             print(userId, depositAmount,operation);
@@ -34,10 +34,10 @@ public class Main {
 
         //出金を選択したとき
         else if (operation == 2) {
-            userId = user.login();
-            user.passwordCheck(userId);
+            userId = userAuthentication.identifyUser();
+            userAuthentication.passwordCheck(userId);
 
-            int withdrawal = account.amountFlow(operation, userId);
+            int withdrawal = amountInput.start(operation, userId);
 
             //出金額の表示と、預け金額の総額表示
             print(userId,withdrawal,operation);

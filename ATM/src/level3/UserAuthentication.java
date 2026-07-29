@@ -4,10 +4,10 @@ package level3;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class User {
+public class UserAuthentication {
     private final int ERROR = -1;
 
-    public String login(){
+    public String identifyUser(){
         //idを入力してもらう(キャッシュカードの認証)
         System.out.print("ユーザーIDを入力してください：");
         Scanner id = new Scanner(System.in);

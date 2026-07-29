@@ -4,10 +4,10 @@ package level3;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class InputChecker {
+public class InputValidator {
     private final int ERROR = -1;
 
-    public int select(int setValue){
+    public int checkSelection(int setValue){
         int flag;
         Scanner input = new Scanner(System.in);
         try {

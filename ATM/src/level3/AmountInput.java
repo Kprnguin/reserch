@@ -4,11 +4,11 @@ package level3;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class Account {
+public class AmountInput {
     private final int ERROR = -1;
-    InputChecker inputChecker = new InputChecker();
+    InputValidator inputValidator = new InputValidator();
 
-    public int amountFlow(int operation, String userId){
+    public int start(int operation, String userId){
         int inputAgain = 2;
         int flag = inputAgain;
         int amount = 0;
@@ -19,7 +19,7 @@ public class Account {
             }else if(operation == 2) {
                 System.out.print("出金金額を入れてください：");
             }
-            amount = amountInput(operation,userId);
+            amount = input(operation,userId);
             if (amount == ERROR) {
                 continue;
             }
@@ -31,7 +31,7 @@ public class Account {
     }
 
 
-    private int amountInput(int operation,String userId){
+    private int input(int operation,String userId){
         //金額を入力してもらう(入力金額が1,000,000円(お札100枚まで) or 0円未満の場合例外処理)
         int amount;
         Scanner input = new Scanner(System.in);
@@ -75,7 +75,7 @@ public class Account {
             System.out.println("入力金額：" + amount + "\n");
             System.out.println("[1:次に進む][2:入力しなおす]");
             System.out.print("あなたの操作(数字を入力してください)：");
-            flag = inputChecker.select(setValue);
+            flag = inputValidator.checkSelection(setValue);
         }
         return flag;
     }

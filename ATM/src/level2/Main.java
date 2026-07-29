@@ -19,14 +19,14 @@ public class Main {
             System.out.println("[1:入金][2:出金]");
             System.out.print("あなたの操作(数字を入力してください)：");
             setValue = 2;
-            operation = selectChecker(setValue);   //setValueは選択肢(ボタン)の数
+            operation = checkSelection(setValue);   //setValueは選択肢(ボタン)の数
         }
 
         //入金を選択したとき
         if (operation == 1) {
-            userId = userLogin();
+            userId = userAuthentication();
 
-            int depositAmount = amountFlow(operation, userId);
+            int depositAmount = amountInputStart(operation, userId);
 
             //入金額の表示と、預け金額の総額表示
             print(userId, depositAmount,operation);
@@ -34,10 +34,10 @@ public class Main {
 
         //出金を選択したとき
         else if (operation == 2) {
-            userId = userLogin();
+            userId = userAuthentication();
             passwordCheck(userId);
 
-            int withdrawal = amountFlow(operation, userId);
+            int withdrawal = amountInputStart(operation, userId);
 
             //出金額の表示と、預け金額の総額表示
             print(userId,withdrawal,operation);
@@ -46,7 +46,7 @@ public class Main {
 
 
 
-    public static String userLogin(){
+    public static String userAuthentication(){
         //idを入力してもらう(キャッシュカードの認証)
         System.out.print("ユーザーIDを入力してください：");
         Scanner id = new Scanner(System.in);
@@ -62,7 +62,7 @@ public class Main {
     }
 
 
-    public static int selectChecker(int setValue){
+    public static int checkSelection(int setValue){
         int flag;
         Scanner input = new Scanner(System.in);
         try {
@@ -81,7 +81,7 @@ public class Main {
     }
 
 
-    public static int amountFlow(int operation, String userId){
+    public static int amountInputStart(int operation, String userId){
         int flag = 2;
         int amount = 0;
         while (flag == 2) {
@@ -147,7 +147,7 @@ public class Main {
             System.out.println("入力金額：" + amount + "円\n");
             System.out.println("[1:次に進む][2:入力しなおす]");
             System.out.print("あなたの操作(数字を入力してください)：");
-            flag = selectChecker(setValue);
+            flag = checkSelection(setValue);
         }
         return flag;
     }
